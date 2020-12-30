@@ -32,7 +32,7 @@ class AuthController extends Controller
             $user->token = $token;
             $user->save();
 
-        } catch (\JWTException $e) {
+        } catch (\JWTException $exception) {
 
             return response()->json(['error' => 'Could not create token'], 500);
 

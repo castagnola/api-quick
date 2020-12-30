@@ -21,7 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('login','Auth\AuthController@login');
 
 Route::middleware(['jwt.verify'])->group(function ($router){
+
     Route::post('users','User\UserController@store');
     Route::get('users','User\UserController@list');
     Route::get('users/{id}','User\UserController@show');
+    Route::delete('users/{id}','User\UserController@delete');
+    Route::put('users/{id}','User\UserController@edit');
+    Route::patch('users/{id}','User\UserController@partialEdit');
 });
