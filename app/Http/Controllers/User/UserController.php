@@ -9,13 +9,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ *
+ * Class UserController
+ * @package App\Http\Controllers\User
+ */
 class UserController extends Controller
 {
+
+    /**
+     * UserController constructor.
+     */
     public function __construct()
     {
         $this->middleware('jwt.verify');
     }
 
+    /**
+     *
+     * @param Request $request
+     * @return UserResource|\Illuminate\Http\JsonResponse
+     */
     public function store(Request $request)
     {
         $validatedData = Validator::make($request->all(), [
@@ -45,6 +59,10 @@ class UserController extends Controller
 
     }
 
+    /**
+     *
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
     public function list()
     {
         try {
@@ -57,6 +75,11 @@ class UserController extends Controller
         }
     }
 
+    /**
+     *
+     * @param $id
+     * @return UserResource|\Illuminate\Http\JsonResponse
+     */
     public function show($id)
     {
         try {
@@ -69,6 +92,12 @@ class UserController extends Controller
         }
     }
 
+    /**
+     *
+     * @param Request $request
+     * @param $id
+     * @return UserResource|\Illuminate\Http\JsonResponse
+     */
     public function edit(Request $request, $id)
     {
 
@@ -109,6 +138,12 @@ class UserController extends Controller
 
     }
 
+    /**
+     *
+     * @param Request $request
+     * @param $id
+     * @return UserResource|\Illuminate\Http\JsonResponse
+     */
     public function partialEdit(Request $request, $id)
     {
         $validatedData = Validator::make($request->all(), [
@@ -145,6 +180,11 @@ class UserController extends Controller
         }
     }
 
+    /**
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function delete($id)
     {
         try {

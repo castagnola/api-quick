@@ -8,6 +8,10 @@ use App\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\JWTAuth;
 
+/**
+ * Class AuthController
+ * @package App\Http\Controllers\Auth
+ */
 class AuthController extends Controller
 {
     public function __construct()
@@ -15,6 +19,11 @@ class AuthController extends Controller
         $this->middleware('jwt.verify', ['except' => ['login']]);
     }
 
+    /**
+     *
+     * @param Request $request
+     * @return UserResource|\Illuminate\Http\JsonResponse
+     */
     public function login(Request $request)
 
     {

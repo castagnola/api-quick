@@ -59,7 +59,7 @@ class Handler extends ExceptionHandler
                     return response()->json(["error" => "Internal server Error"], 500);
             }
         }
-        // return parent::render($request, $exception);
+
         return response()->json(['error' => $exception->getMessage()],400);
     }
 
