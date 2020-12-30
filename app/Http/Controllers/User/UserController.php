@@ -76,7 +76,7 @@ class UserController extends Controller
 
             'first_name' => 'required|max:128',
             'last_name' => 'required|max:128',
-            'email' => 'required|email|unique:users,email'.$id,
+            'email' => 'required|email|unique:users,email,'.$id,
             'age' => 'required',
             'password' => 'required|min:6',
             'description' => 'required',

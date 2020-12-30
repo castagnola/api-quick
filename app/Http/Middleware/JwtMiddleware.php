@@ -27,6 +27,10 @@ class JwtMiddleware extends BaseMiddleware
     {
 
         try {
+            $acceptHeader = $request->header('Content-Type');
+            if ($acceptHeader != 'application/json') {
+                return response()->json(["error" => "Request should have 'Content-Type' header with value 'application/json'"], 403);
+            }
 
             $user = \JWTAuth::parseToken()->authenticate();
 
