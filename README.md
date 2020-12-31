@@ -58,20 +58,21 @@ _The purpose is to obtain an access token for calling the web services_
   
 *  **Header**
 
-   * `Content-Type - application/json `  
+    `Content-Type - application/json `  
  
 *   **Required:**
 
-     * `No parameters`
+      `No parameters`
      
 
 *   **Optional:**
  
-      * `No parameters`
+       `No parameters`
       
 *  **Body**
 
 
+    
     {"email": "user@example.com","password": "secure"} 
 
 
