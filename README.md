@@ -17,7 +17,7 @@
  _All requests when consuming the API it is necessary to add the header `Content-Type` with value `application/json`_
  
 * **Error Response:**
-  * **Code:** 403 <br />
+  **Code:** 403 <br />
 
 
     {"error": "Request should have 'Content-Type' header with value 'application/json'"}
@@ -27,7 +27,7 @@
  _Some requests when consuming the API it is necessary to add the access `Token`_
  
 * **Error Response:**
-    * **Code:** `401` <br />
+  **Code:** `401` <br />
 
  
  
