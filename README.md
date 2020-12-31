@@ -78,8 +78,8 @@ _The purpose is to obtain an access token for calling the web services_
 
 * **Success Response:**
   
-   * **Code:** `200` <br />
-      **Content:**
+* **Code:** `200`  <br />
+    **Content:** 
       
       
        {
@@ -98,11 +98,12 @@ _The purpose is to obtain an access token for calling the web services_
 * **Error Response:**
 
   
-  * **Code:** `401`  <br />
+* **Code:** `401`  <br />
     **Content:** 
-    
+      
+       
+       { "error": "Error in user or password" }
      
-     { "error": "Error in user or password" }
      
 
 
