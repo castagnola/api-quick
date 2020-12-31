@@ -5,11 +5,9 @@
 ## API QUICK
 
   _The respective EndPoints and their parameters are listed below to access each one._
-## Migrations and Seeders
-  * **_Create database called_** `quick` 
-  * **_To create Tables need run the migrations comand:_** `php artisan migrate`
-  * **_To create user default need run the seeder comand:_** `php artisan bd:seed`
-  * **_The api contains `JWT` authentication_** 
+## Server
+  * _To consume the services provided by the API, place the following url before the endpoints :_
+  - [https://whispering-basin-75347.herokuapp.com/](https://whispering-basin-75347.herokuapp.com/).
 
 ## Headers
 * **Required**
