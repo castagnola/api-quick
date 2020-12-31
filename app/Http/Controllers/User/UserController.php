@@ -88,7 +88,7 @@ class UserController extends Controller
 
         } catch (\Exception $exception) {
 
-            return response()->json(['error' => 'Not found'], 404);
+            return response()->json(['error' => 'User not found'], 404);
         }
     }
 
@@ -107,6 +107,7 @@ class UserController extends Controller
             'last_name' => 'required|max:128',
             'email' => 'required|email|unique:users,email,'.$id,
             'age' => 'required',
+            'image' => 'required',
             'password' => 'required|min:6',
             'description' => 'required',
 
@@ -132,7 +133,7 @@ class UserController extends Controller
 
         } catch (\Exception $exception) {
 
-            return response()->json(['error' => 'Not found'], 404);
+            return response()->json(['error' => 'User not found'], 404);
         }
 
 
@@ -148,10 +149,9 @@ class UserController extends Controller
     {
         $validatedData = Validator::make($request->all(), [
 
-            'first_name' => 'required|max:128',
-            'last_name' => 'required|max:128',
+            'first_name' => 'sometimes|max:128',
+            'last_name' => 'sometimes|max:128',
             'email' => 'sometimes|email|unique:users,email,'.$id,
-            'age' => 'required',
             'password' => 'min:6',
 
         ]);
@@ -163,9 +163,9 @@ class UserController extends Controller
         try {
 
             $user = User::findOrFail($id);
-            $user->first_name = $request->first_name;
-            $user->last_name = $request->last_name;
-            $user->age = $request->age;
+            $user->first_name = empty($request->first_name) ? $user->first_name : $request->first_name;
+            $user->last_name = empty($request->last_name) ? $user->last_name : $request->last_name;
+            $user->age = empty($request->age) ? $user->age : $request->age;
             $user->email = empty($request->email) ? $user->email : $request->email;
             $user->password = empty($request->password) ? $user->password : Hash::make($request->password);
             $user->image = empty($request->image) ? $user->image : $request->image;
@@ -176,7 +176,7 @@ class UserController extends Controller
 
         } catch (\Exception $exception) {
 
-            return response()->json(['error' => 'Not found'], 404);
+            return response()->json(['error' => 'User not found'], 404);
         }
     }
 
@@ -196,7 +196,7 @@ class UserController extends Controller
 
         } catch (\Exception $exception) {
 
-            return response()->json(['error' => 'Not found'], 404);
+            return response()->json(['error' => 'User not found'], 404);
         }
     }
 

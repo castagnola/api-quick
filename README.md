@@ -1,61 +1,588 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## API QUICK
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  _The respective EndPoints and their parameters are listed below to access each one._
+## Migrations and Seeders
+  * **_Create database called_** `quick` 
+  * **_To create Tables need run the migrations comand:_** `php artisan migrate`
+  * **_To create user default need run the seeder comand:_** `php artisan bd:seed`
+  * **_The api contains `JWT` authentication_** 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Headers
+* **Required**
 
-## Learning Laravel
+ _All requests when consuming the API it is necessary to add the header `Content-Type` with value `application/json`_
+ 
+ * **Error Response:**
+* **Code:** 403 <br />
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+ 
+ 
+     {"error": "Request should have 'Content-Type' header with value 'application/json'"}
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* **Required**
 
-## Laravel Sponsors
+ _Some requests when consuming the API it is necessary to add the access `Token`_
+ 
+ * **Error Response:**
+* **Code:** `401` <br />
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+ 
+ 
+     { "error": "Token Invalid"}
+  OR
+ * **Code:** `401`  <br />
+     **Content:** 
+     
+      
+      { "error": "Token Expired" }
+  OR
+  * **Code:** `401`  <br />
+      **Content:** 
+      
+       
+       { "error": "Token not found" }
+       
+## Authentication 
+_The purpose is to obtain an access token for calling the web services_
+* **URL**
 
-### Premium Partners
+  `/login`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+* **Method:**
+  
+  `POST`
+  
+*  **Header**
 
-## Contributing
+   * `Content-Type - application/json `  
+ 
+*   **Required:**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+     `No parameters`
+     
 
-## Code of Conduct
+*   **Optional:**
+ 
+      `No parameters`
+      
+*  **Body**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+    {"email": "user@example.com","password": "secure"} 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+* **Success Response:**
+  
+   * **Code:** `200` <br />
+      **Content:**
+      
+      
+      {
+          "id": 1,
+          "first_name": "John",
+          "last_name": "Doe",
+          "email": "user@example.com",
+          "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvbG9naW4iLCJpYXQiOjE2MDkzNDYwNjgsImV4cCI6MTYwOTM0OTY2OCwibmJmIjoxNjA5MzQ2MDY4LCJqdGkiOiI3czdHQ2NHZEl1SjFMMjlYIiwic3ViIjo1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.G__gZ68KMnmeCh_2bWLPX_7O5pzW0t0amhwWK3YtRd8",
+          "age": 24,
+          "image": "IMAGE",
+          "description": "Description text"
+      }
+  
+ 
+ 
+* **Error Response:**
+
+  
+  * **Code:** `401`  <br />
+    **Content:** 
+    
+     
+     { "error": "Error in user or password" }
+     
+
+
+
+## Create User
+
+_This endpoint create the user_
+
+* **URL**
+
+  `/users`
+
+* **Method:**
+  
+  `POST`
+  
+*  **Header**
+
+   * `Content-Type`  -  `application/json ` 
+   * `Token = [string]` 
+ 
+*   **Required:**
+
+    * `first_name = [string]`  
+    * `last_name  = [string]`
+    * `email  = [string]`
+    * `age  = [integer]`
+    * `password  = [string]`
+     
+
+*   **Optional:**
+ 
+    * `image = [string]`  
+    * `description = [string]`  
+ 
+*  **Body**
+
+
+    {
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "email": "email@example.com",
+        "password": "SECRET",
+        "age": 42,
+        "image": "IMAGE",
+        "description": "Description text"
+    } 
+
+
+
+* **Success Response:**
+  
+   * **Code:** `201` <br />
+      **Content:**
+      
+      
+     {
+         "id": 2,
+         "first_name": "First Name",
+         "last_name": "Last Name",
+         "email": "email@example.com",
+         "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvbG9naW4iLCJpYXQiOjE2MDkzNDYwNjgsImV4cCI6MTYwOTM0OTY2OCwibmJmIjoxNjA5MzQ2MDY4LCJqdGkiOiI3czdHQ2NHZEl1SjFMMjlYIiwic3ViIjo1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.G__gZ68KMnmeCh_2bWLPX_7O5pzW0t0amhwWK3YtRd8",
+         "age": 42,
+         "image": "IMAGE",
+         "description": "Description text"
+     }
+     
+* **Error Response:**
+ * **Code:** `422`  <br />
+     **Content:** 
+
+      
+      [
+          {
+              "first_name": [
+                  "The first name field is required."
+              ],
+              "last_name": [
+                  "The last name field is required."
+              ],
+              "email": [
+                  "The email field is required."
+              ],
+              "age": [
+                  "The age field is required."
+              ],
+              "password": [
+                  "The password field is required."
+              ]
+          }
+      ]
+  
+ ## Edit User
+ 
+ _This endpoint can be edit the user_
+ 
+ * **URL**
+ 
+   `/users`
+ 
+ * **Method:**
+   
+   `PUT`
+   
+ *  **Header**
+ 
+    * `Content-Type`  -  `application/json ` 
+  
+ *   **Required:**
+ 
+     * `first_name = [string]`  
+     * `last_name  = [string]`
+     * `email  = [string]`
+     * `age  = [integer]`
+     * `password  = [string]`
+     * `image = [string]`  
+     * `description = [string]`
+      
+ 
+ *   **Optional:**
+  
+      `No parameters`
+  
+ *  **Body**
+ 
+ 
+     {
+         "first_name": "First Name",
+         "last_name": "Last Name",
+         "email": "email@example.com",
+         "password": "SECRET",
+         "age": 42,
+         "image": "IMAGE",
+         "description": "Description text"
+     } 
+ 
+ 
+ 
+ * **Success Response:**
+   
+    * **Code:** `200` <br />
+       **Content:**
+       
+       
+      {
+          "id": 2,
+          "first_name": "First Name",
+          "last_name": "Last Name",
+          "email": "email@example.com",
+          "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvbG9naW4iLCJpYXQiOjE2MDkzNDYwNjgsImV4cCI6MTYwOTM0OTY2OCwibmJmIjoxNjA5MzQ2MDY4LCJqdGkiOiI3czdHQ2NHZEl1SjFMMjlYIiwic3ViIjo1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.G__gZ68KMnmeCh_2bWLPX_7O5pzW0t0amhwWK3YtRd8",
+          "age": 42,
+          "image": "IMAGE",
+          "description": "Description text"
+      }
+
+* **Error Response:**
+ * **Code:** `404`  <br />
+     **Content:** 
+
+      
+       { "error": "User not found" }
+  
+ 
+## Partially Edit User
+ 
+ _In this endpoint the user data is replaced with the data contained in the body._
+ 
+ * **URL**
+ 
+   `/users/{id}`
+ 
+ * **Method:**
+   
+   `PATCH`
+   
+ *  **Header**
+ 
+    * `Content-Type`  -  `application/json ` 
+    
+  
+ *   **Required:**
+ 
+       * `id =[integer]`
+      
+ 
+ *   **Optional:**
+  
+      * `email  = [string]`
+      * `password  = [string]`
+      * `image  = [string]`
+      * `description  = [string]`
+      * `first_name = [string]`  
+      * `last_name  = [string]`
+      * `age  = [integer]`
+
+  
+ *  **Body**
+ 
+ 
+     {
+         "first_name": "Steven",
+         "last_name": "Smith",
+         "age": 26,
+     } 
+ 
+ 
+ 
+ * **Success Response:**
+   
+    * **Code:** `200` <br />
+       **Content:**
+       
+       
+      {
+          "id": 2,
+          "first_name": "Steven",
+          "last_name": "Smith",
+          "age": 26,
+          "email": "email@example.com",
+          "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvbG9naW4iLCJpYXQiOjE2MDkzNDYwNjgsImV4cCI6MTYwOTM0OTY2OCwibmJmIjoxNjA5MzQ2MDY4LCJqdGkiOiI3czdHQ2NHZEl1SjFMMjlYIiwic3ViIjo1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.G__gZ68KMnmeCh_2bWLPX_7O5pzW0t0amhwWK3YtRd8",
+          "image": "IMAGE",
+          "description": "Description text"
+      }
+   
+* **Error Response:**
+ * **Code:** `404`  <br />
+     **Content:** 
+
+      
+       { "error": "User not found" }
+  
+  
+ ## List users
+  
+  _Endpoint getting the  list of users in a paginated._
+  
+  * **URL**
+  
+    `/users`
+  
+  * **Method:**
+    
+    `GET`
+    
+  *  **Header**
+  
+     * `Content-Type`  -  `application/json ` 
+     
+   
+  *   **Required:**
+  
+       `No parameters`
+       
+  
+  *   **Optional:**
+   
+       `No parameters`
+       
+       
+  *  **Body**
+  
+        
+        {}
+  
+  
+  * **Success Response:**
+    
+     * **Code:** `200` <br />
+        **Content:**
+        
+        
+       {
+           "data": [
+               {
+                   "id": 4,
+                   "first_name": "John",
+                   "last_name": "Doe",
+                   "email": "user@example.com",
+                   "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvbG9naW4iLCJpYXQiOjE2MDkyODYxMTUsImV4cCI6MTYwOTI4OTcxNSwibmJmIjoxNjA5Mjg2MTE1LCJqdGkiOiI0ZVRWNmtYZklhcmgySVQ0Iiwic3ViIjo0LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.yK4LywJso7Hl1Ahpl7j-6WcUFdjb36aVwo5R69sYmmk",
+                   "age": 24,
+                   "image": "IMAGE",
+                   "description": "Description text"
+               },
+               {
+                   "id": 5,
+                   "first_name": "John",
+                   "last_name": "Doe",
+                   "email": "user11@example.com",
+                   "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvbG9naW4iLCJpYXQiOjE2MDkzNDYwNjgsImV4cCI6MTYwOTM0OTY2OCwibmJmIjoxNjA5MzQ2MDY4LCJqdGkiOiI3czdHQ2NHZEl1SjFMMjlYIiwic3ViIjo1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.G__gZ68KMnmeCh_2bWLPX_7O5pzW0t0amhwWK3YtRd8",
+                   "age": 26,
+                   "image": "IMAGE",
+                   "description": "Description text5"
+               },
+               {
+                   "id": 6,
+                   "first_name": "John2",
+                   "last_name": "Doe3",
+                   "email": "use2r@example.com",
+                   "token": null,
+                   "age": 26,
+                   "image": "IMAGE",
+                   "description": "Description text5"
+               },
+               {
+                   "id": 7,
+                   "first_name": "Steven",
+                   "last_name": "Smith",
+                   "email": "example@example.com",
+                   "token": null,
+                   "age": 26,
+                   "image": "IMAGE",
+                   "description": "Description text"
+               }
+           ],
+           "links": {
+               "first": "http://127.0.0.1:8000/users?page=1",
+               "last": "http://127.0.0.1:8000/users?page=1",
+               "prev": null,
+               "next": null
+           },
+           "meta": {
+               "current_page": 1,
+               "from": 1,
+               "last_page": 1,
+               "path": "http://127.0.0.1:8000/users",
+               "per_page": 5,
+               "to": 4,
+               "total": 4
+           }
+       }
+       
+## List user
+  
+  _Endpoint getting the  data of user._
+  
+  * **URL**
+  
+    `/users/{id}`
+  
+  * **Method:**
+    
+    `GET`
+    
+  *  **Header**
+  
+     * `Content-Type`  -  `application/json ` 
+     
+   
+  *   **Required:**
+  
+        * `id =[integer]`
+       
+  
+  *   **Optional:**
+   
+       `No parameters`
+       
+       
+  *  **Body**
+  
+        
+        {}
+  
+  
+  * **Success Response:**
+    
+     * **Code:** `200` <br />
+        **Content:**
+        
+        
+       {
+           "data": [
+               {
+                   "id": 4,
+                   "first_name": "John",
+                   "last_name": "Doe",
+                   "email": "user@example.com",
+                   "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvbG9naW4iLCJpYXQiOjE2MDkyODYxMTUsImV4cCI6MTYwOTI4OTcxNSwibmJmIjoxNjA5Mjg2MTE1LCJqdGkiOiI0ZVRWNmtYZklhcmgySVQ0Iiwic3ViIjo0LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.yK4LywJso7Hl1Ahpl7j-6WcUFdjb36aVwo5R69sYmmk",
+                   "age": 24,
+                   "image": "IMAGE",
+                   "description": "Description text"
+               },
+               {
+                   "id": 5,
+                   "first_name": "John",
+                   "last_name": "Doe",
+                   "email": "user11@example.com",
+                   "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvbG9naW4iLCJpYXQiOjE2MDkzNDYwNjgsImV4cCI6MTYwOTM0OTY2OCwibmJmIjoxNjA5MzQ2MDY4LCJqdGkiOiI3czdHQ2NHZEl1SjFMMjlYIiwic3ViIjo1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.G__gZ68KMnmeCh_2bWLPX_7O5pzW0t0amhwWK3YtRd8",
+                   "age": 26,
+                   "image": "IMAGE",
+                   "description": "Description text5"
+               },
+               {
+                   "id": 6,
+                   "first_name": "John2",
+                   "last_name": "Doe3",
+                   "email": "use2r@example.com",
+                   "token": null,
+                   "age": 26,
+                   "image": "IMAGE",
+                   "description": "Description text5"
+               },
+               {
+                   "id": 7,
+                   "first_name": "Steven",
+                   "last_name": "Smith",
+                   "email": "example@example.com",
+                   "token": null,
+                   "age": 26,
+                   "image": "IMAGE",
+                   "description": "Description text"
+               }
+           ],
+           "links": {
+               "first": "http://127.0.0.1:8000/users?page=1",
+               "last": "http://127.0.0.1:8000/users?page=1",
+               "prev": null,
+               "next": null
+           },
+           "meta": {
+               "current_page": 1,
+               "from": 1,
+               "last_page": 1,
+               "path": "http://127.0.0.1:8000/users",
+               "per_page": 5,
+               "to": 4,
+               "total": 4
+           }
+       }
+       
+* **Error Response:**
+ * **Code:** `404`  <br />
+     **Content:** 
+
+      
+       { "error": "User not found" }
+## Delete User
+ 
+ _This endpoint can be edit the user_
+ 
+ * **URL**
+ 
+   `/users/{id}`
+ 
+ * **Method:**
+   
+   `DELETE`
+   
+ *  **Header**
+ 
+    * `Content-Type`  -  `application/json ` 
+  
+ *   **Required:**
+ 
+      * `id = [integer]`
+      
+ 
+ *   **Optional:**
+  
+      `No parameters`
+  
+ *  **Body**
+ 
+       
+       {}
+
+ 
+ 
+ * **Success Response:**
+   
+    * **Code:** `200` <br />
+       **Content:**
+       
+       
+       {"message" : "User deleted succesfull"}
+      
+  
+
+  
+ 
+
+
+
