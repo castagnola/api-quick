@@ -466,10 +466,10 @@ _This endpoint create the user_
         {}
   
   
-  * **Success Response:**
+* **Success Response:**
     
-     * **Code:** `200` <br />
-        **Content:**
+  * **Code:** `200` <br />
+       **Content:**
         
         
        {
