@@ -567,17 +567,12 @@ _This endpoint create the user_
  
        
        {}
+* **Error Response:**
+ * **Code:** `404`  <br />
+     **Content:** 
 
- 
- 
- * **Success Response:**
-   
-    * **Code:** `200` <br />
-       **Content:**
-         
-         
-       {"message" : "User deleted succesfull"}
       
+       { "error": "User deleted succesfull" }
   
 
   
