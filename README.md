@@ -82,7 +82,7 @@ _The purpose is to obtain an access token for calling the web services_
       **Content:**
       
       
-      {
+       {
           "id": 1,
           "first_name": "John",
           "last_name": "Doe",
@@ -91,7 +91,7 @@ _The purpose is to obtain an access token for calling the web services_
           "age": 24,
           "image": "IMAGE",
           "description": "Description text"
-      }
+       }
   
  
  
