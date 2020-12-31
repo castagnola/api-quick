@@ -58,7 +58,7 @@ _The purpose is to obtain an access token for calling the web services_
   
 *  **Header**
 
-    `Content-Type - application/json `  
+    *`Content-Type - application/json `  
  
 *   **Required:**
 
@@ -122,22 +122,22 @@ _This endpoint create the user_
   
 *  **Header**
 
-    `Content-Type`  -  `application/json ` 
-    `Token = [string]` 
+    * `Content-Type`  -  `application/json ` 
+    * `Token = [string]` 
  
 *   **Required:**
 
-     `first_name = [string]`  
-     `last_name  = [string]`
-     `email  = [string]`
-     `age  = [integer]`
-     `password  = [string]`
+     * `first_name = [string]`  
+     * `last_name  = [string]`
+     * `email  = [string]`
+     * `age  = [integer]`
+     * `password  = [string]`
      
 
 *   **Optional:**
  
-     `image = [string]`  
-     `description = [string]`  
+     * `image = [string]`  
+     * `description = [string]`  
  
 *  **Body**
 
@@ -210,17 +210,17 @@ _This endpoint create the user_
    
  *  **Header**
  
-     `Content-Type`  -  `application/json ` 
+    * `Content-Type`  -  `application/json ` 
   
  *   **Required:**
  
-      `first_name = [string]`  
-      `last_name  = [string]`
-      `email  = [string]`
-      `age  = [integer]`
-      `password  = [string]`
-      `image = [string]`  
-      `description = [string]`
+     * `first_name = [string]`  
+     * `last_name  = [string]`
+     * `email  = [string]`
+     * `age  = [integer]`
+     * `password  = [string]`
+     * `image = [string]`  
+     * `description = [string]`
       
  
  *   **Optional:**
@@ -281,23 +281,23 @@ _This endpoint create the user_
    
  *  **Header**
  
-     `Content-Type`  -  `application/json ` 
+     * `Content-Type`  -  `application/json ` 
     
   
  *   **Required:**
  
-        `id =[integer]`
+       * `id =[integer]`
       
  
  *   **Optional:**
   
-       `email  = [string]`
-       `password  = [string]`
-       `image  = [string]`
-       `description  = [string]`
-       `first_name = [string]`  
-       `last_name  = [string]`
-       `age  = [integer]`
+      * `email  = [string]`
+      * `password  = [string]`
+      * `image  = [string]`
+      * `description  = [string]`
+      * `first_name = [string]`  
+      * `last_name  = [string]`
+      * `age  = [integer]`
 
   
 *  **Body**
@@ -365,17 +365,17 @@ _This endpoint create the user_
        
   *  **Body**
   
-        
-        {}
+       
+       {}
   
   
   * **Success Response:**
     
-     * **Code:** `200` <br />
-        **Content:**
-        
-        
-       {
+ * **Code:** `200`  <br />
+     **Content:** 
+       
+       
+        {
            "data": [
                {
                    "id": 4,
@@ -433,7 +433,7 @@ _This endpoint create the user_
                "to": 4,
                "total": 4
            }
-       }
+        }
        
 ## List user
   
@@ -569,12 +569,19 @@ _This endpoint create the user_
        
        {}
        
+* **Success Response:**
+ * **Code:** `200`  <br />
+     **Content:** 
+
+      
+       { "message": "User deleted succesfull" }
+       
 * **Error Response:**
  * **Code:** `404`  <br />
      **Content:** 
 
       
-       { "error": "User deleted succesfull" }
+       { "error": "User not found" }
   
 
   
