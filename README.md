@@ -122,22 +122,22 @@ _This endpoint create the user_
   
 *  **Header**
 
-   * `Content-Type`  -  `application/json ` 
-   * `Token = [string]` 
+    `Content-Type`  -  `application/json ` 
+    `Token = [string]` 
  
 *   **Required:**
 
-    * `first_name = [string]`  
-    * `last_name  = [string]`
-    * `email  = [string]`
-    * `age  = [integer]`
-    * `password  = [string]`
+     `first_name = [string]`  
+     `last_name  = [string]`
+     `email  = [string]`
+     `age  = [integer]`
+     `password  = [string]`
      
 
 *   **Optional:**
  
-    * `image = [string]`  
-    * `description = [string]`  
+     `image = [string]`  
+     `description = [string]`  
  
 *  **Body**
 
@@ -210,17 +210,17 @@ _This endpoint create the user_
    
  *  **Header**
  
-    * `Content-Type`  -  `application/json ` 
+     `Content-Type`  -  `application/json ` 
   
  *   **Required:**
  
-     * `first_name = [string]`  
-     * `last_name  = [string]`
-     * `email  = [string]`
-     * `age  = [integer]`
-     * `password  = [string]`
-     * `image = [string]`  
-     * `description = [string]`
+      `first_name = [string]`  
+      `last_name  = [string]`
+      `email  = [string]`
+      `age  = [integer]`
+      `password  = [string]`
+      `image = [string]`  
+      `description = [string]`
       
  
  *   **Optional:**
@@ -229,16 +229,16 @@ _This endpoint create the user_
   
  *  **Body**
  
- 
-     {
-         "first_name": "First Name",
-         "last_name": "Last Name",
-         "email": "email@example.com",
-         "password": "SECRET",
-         "age": 42,
-         "image": "IMAGE",
-         "description": "Description text"
-     } 
+       
+       {
+             "first_name": "First Name",
+             "last_name": "Last Name",
+             "email": "email@example.com",
+             "password": "SECRET",
+             "age": 42,
+             "image": "IMAGE",
+             "description": "Description text"
+       } 
  
  
  
@@ -281,43 +281,43 @@ _This endpoint create the user_
    
  *  **Header**
  
-    * `Content-Type`  -  `application/json ` 
+     `Content-Type`  -  `application/json ` 
     
   
  *   **Required:**
  
-       * `id =[integer]`
+        `id =[integer]`
       
  
  *   **Optional:**
   
-      * `email  = [string]`
-      * `password  = [string]`
-      * `image  = [string]`
-      * `description  = [string]`
-      * `first_name = [string]`  
-      * `last_name  = [string]`
-      * `age  = [integer]`
+       `email  = [string]`
+       `password  = [string]`
+       `image  = [string]`
+       `description  = [string]`
+       `first_name = [string]`  
+       `last_name  = [string]`
+       `age  = [integer]`
 
   
- *  **Body**
+*  **Body**
  
- 
-     {
+       
+       {
          "first_name": "Steven",
          "last_name": "Smith",
          "age": 26,
-     } 
+       } 
  
  
  
  * **Success Response:**
    
-    * **Code:** `200` <br />
-       **Content:**
+ * **Code:** `200`  <br />
+     **Content:** 
        
        
-      {
+        {
           "id": 2,
           "first_name": "Steven",
           "last_name": "Smith",
@@ -326,8 +326,8 @@ _This endpoint create the user_
           "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvbG9naW4iLCJpYXQiOjE2MDkzNDYwNjgsImV4cCI6MTYwOTM0OTY2OCwibmJmIjoxNjA5MzQ2MDY4LCJqdGkiOiI3czdHQ2NHZEl1SjFMMjlYIiwic3ViIjo1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.G__gZ68KMnmeCh_2bWLPX_7O5pzW0t0amhwWK3YtRd8",
           "image": "IMAGE",
           "description": "Description text"
-      }
-   
+        }
+
 * **Error Response:**
  * **Code:** `404`  <br />
      **Content:** 
