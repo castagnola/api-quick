@@ -176,7 +176,7 @@ _This endpoint create the user_
      **Content:** 
 
       
-      [
+       [
           {
               "first_name": [
                   "The first name field is required."
@@ -194,7 +194,7 @@ _This endpoint create the user_
                   "The password field is required."
               ]
           }
-      ]
+       ]
   
  ## Edit User
  
