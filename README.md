@@ -226,8 +226,8 @@ _This endpoint create the user_
  *   **Optional:**
   
       `No parameters`
-  
- *  **Body**
+
+*  **Body**
  
        
        {
@@ -241,23 +241,22 @@ _This endpoint create the user_
        } 
  
  
- 
- * **Success Response:**
-   
-    * **Code:** `200` <br />
-       **Content:**
-       
-       
-      {
-          "id": 2,
-          "first_name": "First Name",
-          "last_name": "Last Name",
-          "email": "email@example.com",
-          "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvbG9naW4iLCJpYXQiOjE2MDkzNDYwNjgsImV4cCI6MTYwOTM0OTY2OCwibmJmIjoxNjA5MzQ2MDY4LCJqdGkiOiI3czdHQ2NHZEl1SjFMMjlYIiwic3ViIjo1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.G__gZ68KMnmeCh_2bWLPX_7O5pzW0t0amhwWK3YtRd8",
-          "age": 42,
-          "image": "IMAGE",
-          "description": "Description text"
-      }
+* **Success Response:**
+  
+* **Code:** `201` <br />
+    **Content:**
+    
+       {
+                 "id": 2,
+                 "first_name": "First Name",
+                 "last_name": "Last Name",
+                 "email": "email@example.com",
+                 "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvbG9naW4iLCJpYXQiOjE2MDkzNDYwNjgsImV4cCI6MTYwOTM0OTY2OCwibmJmIjoxNjA5MzQ2MDY4LCJqdGkiOiI3czdHQ2NHZEl1SjFMMjlYIiwic3ViIjo1LCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.G__gZ68KMnmeCh_2bWLPX_7O5pzW0t0amhwWK3YtRd8",
+                 "age": 42,
+                 "image": "IMAGE",
+                 "description": "Description text"
+       }
+
 
 * **Error Response:**
  * **Code:** `404`  <br />
