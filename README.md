@@ -16,8 +16,8 @@
 
  _All requests when consuming the API it is necessary to add the header `Content-Type` with value `application/json`_
  
- * **Error Response:**
-* **Code:** 403 <br />
+* **Error Response:**
+  * **Code:** 403 <br />
 
 
     {"error": "Request should have 'Content-Type' header with value 'application/json'"}
@@ -26,21 +26,21 @@
 
  _Some requests when consuming the API it is necessary to add the access `Token`_
  
- * **Error Response:**
-* **Code:** `401` <br />
+* **Error Response:**
+    * **Code:** `401` <br />
 
  
  
      { "error": "Token Invalid"}
   OR
- * **Code:** `401`  <br />
-     **Content:** 
+* **Code:** `401`  <br />
+    **Content:** 
      
       
       { "error": "Token Expired" }
   OR
-  * **Code:** `401`  <br />
-      **Content:** 
+* **Code:** `401`  <br />
+    **Content:** 
       
        
        { "error": "Token not found" }
@@ -450,17 +450,17 @@ _This endpoint create the user_
      * `Content-Type`  -  `application/json ` 
      
    
-  *   **Required:**
+*   **Required:**
   
         * `id =[integer]`
        
   
-  *   **Optional:**
+*   **Optional:**
    
        `No parameters`
        
        
-  *  **Body**
+*  **Body**
   
         
         {}
