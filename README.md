@@ -563,10 +563,11 @@ _This endpoint create the user_
   
       `No parameters`
   
- *  **Body**
+*  **Body**
  
        
        {}
+       
 * **Error Response:**
  * **Code:** `404`  <br />
      **Content:** 
