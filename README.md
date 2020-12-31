@@ -62,12 +62,12 @@ _The purpose is to obtain an access token for calling the web services_
  
 *   **Required:**
 
-     `No parameters`
+     * `No parameters`
      
 
 *   **Optional:**
  
-      `No parameters`
+      * `No parameters`
       
 *  **Body**
 
