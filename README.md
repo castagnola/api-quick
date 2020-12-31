@@ -19,9 +19,8 @@
  * **Error Response:**
 * **Code:** 403 <br />
 
- 
- 
-     {"error": "Request should have 'Content-Type' header with value 'application/json'"}
+
+    {"error": "Request should have 'Content-Type' header with value 'application/json'"}
 
 * **Required**
 
@@ -575,8 +574,8 @@ _This endpoint create the user_
    
     * **Code:** `200` <br />
        **Content:**
-       
-       
+         
+         
        {"message" : "User deleted succesfull"}
       
   
