@@ -72,8 +72,7 @@ _The purpose is to obtain an access token for calling the web services_
 *  **Body**
 
 
-    
-    {"email": "user@example.com","password": "secure"} 
+      {"email": "user@example.com","password": "secure"} 
 
 
 
