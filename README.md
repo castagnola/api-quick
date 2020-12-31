@@ -27,12 +27,12 @@
  _Some requests when consuming the API it is necessary to add the access `Token`_
  
 * **Error Response:**
+
 * **Code:** `401`  <br />
     **Content:** 
-
- 
- 
-     { "error": "Token Invalid"}
+     
+      
+      { "error": "Token Invalid" }
   OR
 * **Code:** `401`  <br />
     **Content:** 
