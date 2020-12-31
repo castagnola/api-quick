@@ -70,9 +70,12 @@ _The purpose is to obtain an access token for calling the web services_
        `No parameters`
       
 *  **Body**
+    **Content:** 
+      
+       
+       { "error": "Token not found" }
 
-
-      {"email": "user@example.com","password": "secure"} 
+       {"email": "user@example.com","password": "secure"} 
 
 
 
